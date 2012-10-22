@@ -4,7 +4,7 @@ from capture import test
 
 def eval_func(chromosome):
    score = 0.0
-   test()
+   print 'hi', test(), 'done'
    # iterate over the chromosome
    #for value in chromosome:
    #   if value==0:
