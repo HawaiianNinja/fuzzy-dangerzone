@@ -829,3 +829,7 @@ if __name__ == '__main__':
   """
   options = readCommand(sys.argv[1:]) # Get game components based on input
   runGames(**options)
+  
+def test():
+  a = readCommand([])
+  runGames(**a)
