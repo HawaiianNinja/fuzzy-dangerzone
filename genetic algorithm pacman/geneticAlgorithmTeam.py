@@ -178,23 +178,7 @@ class ReflexCaptureAgent(CaptureAgent):
         if(min(ghostDistances) < 5):
           return -1000
         else:
-          score += float(weights['enemy'])/min(ghostDistances)
-    return score
-    if self.isScared(currentGameState):
-        score -= float(weights['isScared']/min(ghostDistances))
-    
-    
-    if len(foodDistances) != 0:
-      #if the list of food distances exists, take the inverse of the minimum
-      #and multiply it by the distance to the closest ghost (takes into account
-      #best food and nearest opponent)
-      if min(ghostDistances) > 6:
-        score += ((7) / (min(foodDistances))) ** 2
-      else:
-        score += ((min(ghostDistances)) / (min(foodDistances))) ** 2
-
-    #add on the score of the to be game state for a flat reference
-    score += currentGameState.getScore()
+          score += float(weights['isScared'])/min(ghostDistances)
     return score
 
   def getSuccessor(self, gameState, action):
@@ -255,7 +239,7 @@ class OffensiveReflexAgent(ReflexCaptureAgent):
 
   def getWeights(self, gameState):
     c = self.chromosome
-    return {'enemyFood': c[6], 'ourFood': 0, 'enemy': c[7], 'scaredEnemy': c[8], 'powerPellet': c[9], 'defendPellet':0, 'isScared': 0, 'gameScore': c[10]}
+    return {'enemyFood': c[6], 'ourFood': 0, 'enemy': c[7], 'scaredEnemy': c[8], 'powerPellet': c[9], 'defendPellet':0, 'isScared': c[10], 'gameScore': c[11]}
 
 class DefensiveReflexAgent(ReflexCaptureAgent):
   """
