@@ -138,6 +138,7 @@ class ReflexCaptureAgent(CaptureAgent):
     food = self.getFood(currentGameState)
     protectFood = self.getFoodYouAreDefending(currentGameState)
     powerPellets = self.getCapsules(currentGameState)
+    protectedPellets = self.getCapsulesYouAreDefending(currentGameState)
     EnemyPositions = [currentGameState.getAgentPosition(tempAgent) for tempAgent in self.getOpponents(currentGameState)]
     score = 0      
     ghostDistances = []
@@ -147,20 +148,41 @@ class ReflexCaptureAgent(CaptureAgent):
     foodDistances = []
     for f in foodList:
       foodDistances += [self.getMazeDistance(pos, f)]
-    protectedFoodList = food.asList()
+    protectedFoodList = self.getFoodYouAreDefending(currentGameState).asList()
     protectedFoodDistances = []
     for pf in protectedFoodList:
       protectedFoodDistances += [self.getMazeDistance(pos, pf)]
     capsulesDistances = []
     for pp in powerPellets:
         capsulesDistances += [self.getMazeDistance(pos, pp)]
+    pCapsulesDistances = []
+    for pp in protectedPellets:
+        pCapsulesDistances += [self.getMazeDistance(pos, pp)]
     if len(capsulesDistances) > 0:
-         score += float(weights['powerPellet'])/(100*min(capsulesDistances))
-    score += float(weights['enemyFood'])/(100*min(foodDistances)) + float(weights['ourFood'])/(100*min(protectedFoodDistances)) + self.getScore(currentGameState)
+         score += float(weights['powerPellet'])/(min(capsulesDistances) + 1)
+    if len(pCapsulesDistances) > 0:
+         score += float(weights['defendPellet'])/(min(pCapsulesDistances) + 1)
+    score += float(weights['enemyFood'])/(min(foodDistances) + 1) + float(weights['ourFood'])/(min(protectedFoodDistances) + 1) + (weights['gameScore'] * self.getScore(currentGameState))
+    myState = currentGameState.getAgentState(self.index)
+    if(myState.isPacman):
+      #on enemy side
+      if(min(ghostDistances) < 5):
+        return -1000
+    else:
+      # on our side
+      if(myState.scaredTimer == 0):
+        #not afraid
+        score += float(weights['enemy'])/min(ghostDistances)
+      else:
+        #afraid
+        if(min(ghostDistances) < 5):
+          return -1000
+        else:
+          score += float(weights['enemy'])/min(ghostDistances)
     return score
     if self.isScared(currentGameState):
         score -= float(weights['isScared']/min(ghostDistances))
-   
+    
     
     if len(foodDistances) != 0:
       #if the list of food distances exists, take the inverse of the minimum
@@ -193,6 +215,7 @@ class ReflexCaptureAgent(CaptureAgent):
     """
     features = self.getFeatures(gameState, action)
     weights = self.getWeights(gameState, action)
+    return "hi"
     return features * weights
 
   def getFeatures(self, gameState, action):
@@ -232,7 +255,7 @@ class OffensiveReflexAgent(ReflexCaptureAgent):
 
   def getWeights(self, gameState):
     c = self.chromosome
-    return {'enemyFood': c[4], 'ourFood': 0, 'enemy': c[5], 'scaredEnemy': c[6], 'powerPellet': c[7], 'isScared': 0}
+    return {'enemyFood': c[6], 'ourFood': 0, 'enemy': c[7], 'scaredEnemy': c[8], 'powerPellet': c[9], 'defendPellet':0, 'isScared': 0, 'gameScore': c[10]}
 
 class DefensiveReflexAgent(ReflexCaptureAgent):
   """
@@ -269,4 +292,4 @@ class DefensiveReflexAgent(ReflexCaptureAgent):
 
   def getWeights(self, gameState):
     c = self.chromosome
-    return {'enemyFood': 0, 'ourFood': c[0], 'enemy': c[1], 'scaredEnemy': 0, 'powerPellet': c[2], 'isScared': c[3]}
+    return {'enemyFood': 0, 'ourFood': c[0], 'enemy': c[1], 'scaredEnemy': 0, 'powerPellet': c[2], 'defendPellet': c[3], 'isScared': c[4], 'gameScore': c[5]}

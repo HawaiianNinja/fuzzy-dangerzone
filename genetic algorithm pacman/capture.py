@@ -837,4 +837,4 @@ def test(chromosome):
   for agent in agents:
       agent.setChromosome(chromosome)
   a['agents'] = agents
-  return runGames(**a)
+  return -runGames(**a)[0].state.data.score
