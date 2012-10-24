@@ -162,14 +162,18 @@ class ReflexCaptureAgent(CaptureAgent):
          score += float(weights['powerPellet'])/(min(capsulesDistances) + 1)
     if len(pCapsulesDistances) > 0:
          score += float(weights['defendPellet'])/(min(pCapsulesDistances) + 1)
-    score += float(weights['enemyFood'])/(min(foodDistances) + 1) + float(weights['ourFood'])/(min(protectedFoodDistances) + 1) + (weights['gameScore'] * self.getScore(currentGameState))
+    if len(protectedFoodDistances) > 0:
+          score += float(weights['ourFood'])/(min(protectedFoodDistances) + 1)
+    if len(foodDistances) > 0:
+          score += float(weights['enemyFood'])/min(foodDistances)
+    score += (weights['gameScore'] * self.getScore(currentGameState))
     myState = currentGameState.getAgentState(self.index)
     if(myState.isPacman):
       #on enemy side
       if(min(ghostDistances) < 5):
         return -1000
     else:
-      # on our side
+      #on our side
       if(myState.scaredTimer == 0):
         #not afraid
         score += float(weights['enemy'])/min(ghostDistances)
@@ -177,8 +181,6 @@ class ReflexCaptureAgent(CaptureAgent):
         #afraid
         if(min(ghostDistances) < 5):
           return -1000
-        else:
-          score += float(weights['isScared'])/min(ghostDistances)
     return score
 
   def getSuccessor(self, gameState, action):
