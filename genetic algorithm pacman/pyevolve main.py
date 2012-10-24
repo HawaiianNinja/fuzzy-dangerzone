@@ -16,7 +16,7 @@ def eval_func(chromosome):
   myFile.write("End: " + time.asctime( time.localtime(time.time())) + "\n")
   myFile.write("\n\n")
   myFile.close()
-  return score
+  return score + 100
 
 genome = G1DList.G1DList(12)
 genome.evaluator.set(eval_func)
