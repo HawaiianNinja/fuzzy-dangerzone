@@ -23,6 +23,9 @@ class Agent:
   """
   def __init__(self, index=0):
     self.index = index
+    
+  def setChromosome(self, chromosome):
+      self.chromosome = chromosome
 
   def getAction(self, state):
     """

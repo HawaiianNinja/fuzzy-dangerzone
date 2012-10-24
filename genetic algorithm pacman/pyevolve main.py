@@ -3,15 +3,13 @@ from pyevolve import GSimpleGA
 from capture import test
 
 def eval_func(chromosome):
-   score = 0.0
-   print 'hi', test(), 'done'
    # iterate over the chromosome
    #for value in chromosome:
    #   if value==0:
    #      score += 1
-   return score
+   return test(chromosome)
 
-genome = G1DList.G1DList(20)
+genome = G1DList.G1DList(8)
 genome.evaluator.set(eval_func)
 ga = GSimpleGA.GSimpleGA(genome)
 ga.evolve(freq_stats=10)
