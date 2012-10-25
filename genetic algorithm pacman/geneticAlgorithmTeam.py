@@ -79,29 +79,29 @@ class ReflexCaptureAgent(CaptureAgent):
     #depth for expectiMax
     self.depth = 1
   
-  def expectiMax(self, state, agent, depth):
+  def expectiMax(self, state, agent, depth, startScore):
     val = 0
     if agent == self.agentCount:
         # if the current agent value is the total number of agents, reset to
         # zero, as this is using a zero based index (0 = pacman)
-        agent = self.index
+        agent = 0
     if  depth == (self.depth * self.agentCount):
         #if our depth limit has been reached (each agent reaches max depth), or we have
         #won or lost, merely evaluate the current position instead of looking ahead
-        val = self.evaluationFunction(state)
-    elif agent == self.index:
+        val = self.evaluationFunction(state, startScore)
+    elif agent in self.getTeam(state):
         #pacman
         actions = state.getLegalActions(agent)
         val = float("-inf")
         for action in actions:
             #evaluate all children and take the max value (for pacman)
-            val = max(val, self.expectiMax(state.generateSuccessor(agent, action), agent + 1, depth + 1))          
+            val = max(val, self.expectiMax(state.generateSuccessor(agent, action), agent + 1, depth + 1, startScore))          
     else:
         #returns returns a random path
+        val = float("inf")
         for action in state.getLegalActions(agent):
             #evaluate all children and take the min value (for ghosts)
-            val += self.expectiMax(state.generateSuccessor(agent, action), agent + 1, depth + 1)        
-        val = val / len(state.getLegalActions(agent))
+            val = min(val, self.expectiMax(state.generateSuccessor(agent, action), agent + 1, depth + 1, startScore))       
     return val
 
   def chooseAction(self, gameState):
@@ -118,18 +118,19 @@ class ReflexCaptureAgent(CaptureAgent):
     agent = self.index
     avPairs = {}
     actions = state.getLegalActions(agent)
+    startScore = self.getScore(gameState)
     for action in actions:
         #for each possible direction, run the expectimax algorithm and store a
         #key value pair in the dictionary structure:
         #(value of algorithm, direction of travel)
         #alpha is the best possible score for pacman, and starts at negative infinity
         #beta is the best situation for the ghosts, and starts at positive infinity
-        val = self.expectiMax(state.generateSuccessor(agent, action), agent + 1, depth + 1)
+        val = self.expectiMax(state.generateSuccessor(agent, action), agent + 1, depth + 1, startScore)
         avPairs[val] = action
     #return the direction that yeilds the highest value from expectimax
     return avPairs[max(avPairs)]
 
-  def evaluationFunction(self, currentGameState):
+  def evaluationFunction(self, currentGameState, startScore):
     """
     use values from self.getWeights() to make a better evaluation function!
     """
@@ -159,28 +160,42 @@ class ReflexCaptureAgent(CaptureAgent):
     for pp in protectedPellets:
         pCapsulesDistances += [self.getMazeDistance(pos, pp)]
     if len(capsulesDistances) > 0:
-         score += float(weights['powerPellet'])/(min(capsulesDistances) + 1)
-    if len(pCapsulesDistances) > 0:
-         score += float(weights['defendPellet'])/(min(pCapsulesDistances) + 1)
-    if len(protectedFoodDistances) > 0:
-          score += float(weights['ourFood'])/(min(protectedFoodDistances) + 1)
+         score += float(weights['powerPellet'])/(min(capsulesDistances)+0.001)
+    #if len(pCapsulesDistances) > 0:
+    #     score += float(weights['defendPellet'])/(min(pCapsulesDistances)+0.001)
+    #if len(protectedFoodDistances) > 0:
+    #     score += float(weights['ourFood'])/(min(protectedFoodDistances) + 0.001)
     if len(foodDistances) > 0:
-          score += float(weights['enemyFood'])/min(foodDistances)
-    score += (weights['gameScore'] * self.getScore(currentGameState))
+          score += float(weights['enemyFood'])/((min(foodDistances)+0.001))
+          #print float(weights['enemyFood'])/((min(foodDistances)+0.001)),"  ", 10*weights['gameScore']*(self.getScore(currentGameState) - startScore)
+    score += 10*weights['gameScore']*(self.getScore(currentGameState) - startScore)
     myState = currentGameState.getAgentState(self.index)
+    for enemyIndex in self.getOpponents(currentGameState):
+          if (currentGameState.getAgentState(enemyIndex).scaredTimer != 0):
+              score += 101
+              break
     if(myState.isPacman):
       #on enemy side
-      if(min(ghostDistances) < 5):
-        return -1000
+      scaredGhosts = []
+      for enemyIndex in self.getOpponents(currentGameState):
+          enemyPos = self.getMazeDistance(pos, currentGameState.getAgentPosition(enemyIndex))
+          if (currentGameState.getAgentState(enemyIndex).scaredTimer > enemyPos):
+              scaredGhosts.append(enemyPos)
+      if len(scaredGhosts) > 0:
+        score += 1.0/(min(scaredGhosts) + 0.001)
+        print score
+      else:
+        if(min(ghostDistances) < 3):
+          return -1000.0/(min(ghostDistances) + 0.001)
     else:
       #on our side
       if(myState.scaredTimer == 0):
         #not afraid
-        score += float(weights['enemy'])/min(ghostDistances)
+        score += float(weights['enemy'])/(min(ghostDistances) + 0.001)
       else:
         #afraid
-        if(min(ghostDistances) < 5):
-          return -1000
+        if(min(ghostDistances) < 3):
+          return -1000.0/min(ghostDistances)
     return score
 
   def getSuccessor(self, gameState, action):

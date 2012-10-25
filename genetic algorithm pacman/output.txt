@@ -1,0 +1,152 @@
+Start: Wed Oct 24 19:13:00 2012
+Chromosome: 1, 11, 20, 15, 17, 18, 6, 4, 8, 9, 8, 6, 
+Start: Wed Oct 24 19:15:53 2012
+Chromosome: 2, 5, 0, 14, 17, 6, 7, 4, 20, 16, 4, 6, 
+Start: Wed Oct 24 19:16:26 2012
+Chromosome: 8, 6, 13, 6, 11, 5, 12, 14, 3, 1, 13, 9, 
+Start: Wed Oct 24 19:19:37 2012
+Chromosome: 8, 20, 7, 13, 11, 1, 20, 9, 18, 14, 5, 1, 
+Start: Wed Oct 24 19:21:16 2012
+Chromosome: 9, 18, 0, 0, 11, 12, 1, 15, 5, 5, 4, 6, 
+Start: Wed Oct 24 19:21:54 2012
+Chromosome: 9, 1, 5, 18, 2, 11, 1, 13, 3, 7, 6, 14, 
+Start: Wed Oct 24 19:22:19 2012
+Chromosome: 12, 14, 1, 6, 12, 10, 11, 3, 5, 7, 1, 11, 
+Start: Wed Oct 24 19:22:51 2012
+Chromosome: 0, 6, 4, 13, 7, 0, 7, 9, 2, 18, 9, 8, 
+Score: 122
+End: Wed Oct 24 19:25:12 2012
+
+
+Start: Wed Oct 24 19:25:12 2012
+Chromosome: 12, 0, 9, 9, 1, 9, 7, 15, 2, 6, 7, 16, 
+Start: Wed Oct 24 19:31:13 2012
+Chromosome: 7, 6, 18, 9, 9, 8, 11, 14, 14, 2, 3, 12, 
+Start: Wed Oct 24 19:32:27 2012
+Chromosome: 14, 11, 0, 7, 2, 19, 8, 17, 7, 1, 10, 9, 
+Start: Wed Oct 24 19:33:30 2012
+Chromosome: 20, 16, 4, 15, 19, 0, 1, 10, 3, 0, 18, 19, 
+Score: 74
+End: Wed Oct 24 19:34:56 2012
+
+
+Start: Wed Oct 24 19:34:56 2012
+Chromosome: 19, 16, 11, 12, 6, 18, 17, 12, 3, 4, 4, 19, 
+Start: Wed Oct 24 19:38:03 2012
+Chromosome: 19, 4, 8, 18, 15, 18, 20, 17, 5, 17, 9, 20, 
+Start: Wed Oct 24 19:41:29 2012
+Chromosome: 18, 9, 7, 14, 17, 14, 9, 0, 16, 10, 6, 8, 
+Start: Wed Oct 24 19:44:16 2012
+Chromosome: 6, 15, 20, 6, 17, 13, 19, 16, 10, 13, 3, 13, 
+Start: Wed Oct 24 19:58:30 2012
+Chromosome: 10, 1, 11, 1, 7, 5, 6, 20, 4, 2, 20, 12, 
+Start: Wed Oct 24 20:00:43 2012
+Chromosome: 2, 16, 10, 7, 15, 20, 3, 7, 7, 13, 18, 14, 
+Start: Wed Oct 24 20:02:47 2012
+Chromosome: 8, 16, 15, 4, 4, 6, 4, 7, 6, 5, 9, 0, 
+Start: Wed Oct 24 20:04:09 2012
+Chromosome: 0, 15, 16, 3, 8, 11, 19, 13, 15, 6, 1, 19, 
+Start: Wed Oct 24 20:05:58 2012
+Chromosome: 3, 3, 4, 6, 11, 7, 20, 14, 15, 5, 4, 17, 
+Start: Wed Oct 24 20:07:49 2012
+Chromosome: 5, 7, 17, 5, 10, 10, 14, 8, 15, 17, 0, 15, 
+Start: Wed Oct 24 20:08:47 2012
+Chromosome: 18, 2, 18, 13, 7, 9, 6, 15, 20, 20, 19, 5, 
+Start: Wed Oct 24 20:12:07 2012
+Chromosome: 9, 9, 18, 5, 9, 4, 3, 12, 7, 9, 16, 9, 
+Score: 77
+End: Wed Oct 24 20:13:26 2012
+
+
+Start: Wed Oct 24 20:13:26 2012
+Chromosome: 13, 10, 15, 20, 16, 13, 18, 8, 17, 3, 18, 18, 
+Start: Wed Oct 24 20:15:47 2012
+Chromosome: 13, 4, 1, 15, 16, 4, 4, 17, 9, 16, 12, 5, 
+Start: Wed Oct 24 20:17:13 2012
+Chromosome: 10, 1, 9, 15, 15, 5, 10, 18, 5, 5, 6, 9, 
+Start: Wed Oct 24 20:18:42 2012
+Chromosome: 9, 2, 12, 12, 2, 10, 1, 0, 12, 11, 2, 1, 
+Start: Wed Oct 24 20:20:07 2012
+Chromosome: 19, 10, 15, 15, 13, 4, 11, 4, 3, 11, 15, 1, 
+Start: Wed Oct 24 20:24:29 2012
+Chromosome: 6, 14, 16, 4, 11, 4, 2, 16, 3, 14, 5, 9, 
+Start: Wed Oct 24 20:24:53 2012
+Chromosome: 6, 15, 8, 3, 7, 13, 20, 7, 14, 19, 20, 8, 
+Score: 101
+End: Wed Oct 24 20:26:07 2012
+
+
+Start: Wed Oct 24 20:26:07 2012
+Chromosome: 17, 16, 17, 6, 15, 19, 2, 5, 4, 16, 19, 18, 
+Score: 108
+End: Wed Oct 24 20:28:29 2012
+
+
+Start: Wed Oct 24 20:28:29 2012
+Chromosome: 1, 8, 5, 1, 3, 16, 2, 2, 7, 0, 20, 12, 
+Start: Wed Oct 24 20:29:28 2012
+Chromosome: 8, 20, 11, 12, 18, 6, 14, 4, 15, 16, 7, 10, 
+Start: Wed Oct 24 20:31:18 2012
+Chromosome: 3, 13, 2, 10, 13, 18, 5, 12, 17, 18, 5, 18, 
+Start: Wed Oct 24 20:32:22 2012
+Chromosome: 9, 8, 0, 14, 14, 5, 11, 1, 20, 8, 9, 9, 
+Start: Wed Oct 24 20:33:39 2012
+Chromosome: 7, 1, 0, 7, 13, 20, 7, 9, 19, 10, 12, 18, 
+Start: Wed Oct 24 20:36:59 2012
+Chromosome: 5, 5, 0, 8, 16, 16, 12, 4, 15, 13, 11, 14, 
+Score: 89
+End: Wed Oct 24 20:38:35 2012
+
+
+Start: Wed Oct 24 20:38:35 2012
+Chromosome: 2, 8, 3, 14, 12, 16, 20, 2, 19, 10, 3, 12, 
+Start: Wed Oct 24 20:45:34 2012
+Chromosome: 16, 12, 0, 8, 7, 7, 12, 15, 8, 16, 7, 3, 
+Score: 167
+End: Wed Oct 24 20:48:32 2012
+
+
+Start: Wed Oct 24 20:48:32 2012
+Chromosome: 11, 4, 5, 12, 11, 10, 9, 5, 0, 9, 12, 7, 
+Start: Wed Oct 24 20:48:43 2012
+Chromosome: 0, 20, 3, 20, 10, 18, 8, 0, 1, 15, 19, 14, 
+Start: Wed Oct 24 20:52:01 2012
+Chromosome: 7, 13, 3, 12, 11, 1, 0, 8, 12, 17, 5, 6, 
+Start: Wed Oct 24 20:52:19 2012
+Chromosome: 18, 13, 19, 1, 8, 12, 9, 6, 3, 14, 19, 5, 
+Start: Wed Oct 24 20:58:30 2012
+Chromosome: 12, 6, 20, 17, 0, 6, 17, 11, 11, 7, 13, 19, 
+Start: Wed Oct 24 20:58:42 2012
+Chromosome: 6, 15, 16, 10, 1, 5, 18, 14, 16, 14, 4, 13, 
+Start: Wed Oct 24 21:00:20 2012
+Chromosome: 11, 1, 14, 2, 6, 11, 13, 16, 18, 9, 15, 10, 
+Start: Wed Oct 24 21:02:15 2012
+Chromosome: 0, 13, 6, 9, 18, 4, 17, 19, 14, 6, 3, 5, 
+Score: 126
+End: Wed Oct 24 21:04:27 2012
+
+
+Start: Wed Oct 24 21:04:27 2012
+Chromosome: 14, 20, 6, 10, 10, 8, 20, 15, 18, 12, 18, 5, 
+Start: Wed Oct 24 21:05:06 2012
+Chromosome: 13, 2, 6, 15, 4, 7, 2, 5, 1, 10, 14, 9, 
+Start: Wed Oct 24 21:06:06 2012
+Chromosome: 1, 2, 6, 4, 17, 2, 16, 4, 14, 15, 10, 20, 
+Start: Wed Oct 24 21:07:22 2012
+Chromosome: 10, 3, 10, 20, 15, 17, 6, 8, 15, 13, 13, 6, 
+Start: Wed Oct 24 21:07:56 2012
+Chromosome: 20, 17, 8, 0, 18, 19, 0, 9, 11, 1, 15, 1, 
+Start: Wed Oct 24 21:10:47 2012
+Chromosome: 6, 13, 8, 18, 13, 19, 18, 12, 19, 6, 14, 5, 
+Start: Wed Oct 24 21:12:43 2012
+Chromosome: 9, 8, 2, 9, 10, 13, 16, 17, 8, 5, 1, 1, 
+Start: Wed Oct 24 21:16:24 2012
+Chromosome: 10, 5, 3, 3, 11, 13, 13, 5, 13, 20, 18, 11, 
+Start: Wed Oct 24 21:17:18 2012
+Chromosome: 0, 15, 5, 18, 10, 6, 17, 8, 3, 17, 10, 11, 
+Start: Wed Oct 24 21:17:53 2012
+Chromosome: 17, 20, 12, 11, 14, 4, 9, 7, 1, 7, 3, 4, 
+Start: Wed Oct 24 21:20:42 2012
+Chromosome: 10, 18, 8, 17, 15, 9, 3, 4, 1, 1, 19, 17, 
+Start: Wed Oct 24 21:22:31 2012
+Chromosome: 11, 15, 9, 3, 6, 1, 19, 11, 4, 6, 17, 4, 
