@@ -4,9 +4,13 @@ from pyevolve import GSimpleGA
 from capture import test
 import time
 
+run = 0
+
 def eval_func(chromosome):
+  global run
   myFile = open("output.txt", "a")
-  myFile.write("Start: " + time.asctime( time.localtime(time.time())) + "\n")
+  myFile.write("Start: " + str(run) + " " + time.asctime( time.localtime(time.time())) + "\n")
+  run += 1
   out = ""
   for gene in chromosome:
     out += str(gene) + ", "
@@ -18,13 +22,14 @@ def eval_func(chromosome):
   myFile.close()
   return score
 
+
 genome = G1DList.G1DList(12)
 genome.evaluator.set(eval_func)
 genome.setParams(rangemin=0, rangemax=20)
 ga = GSimpleGA.GSimpleGA(genome)
 csv_adapter = DBAdapters.DBFileCSV(identify="run1", filename="stats.csv")
 ga.setDBAdapter(csv_adapter)
-ga.setGenerations(500)
+ga.setGenerations(50)
 ga.setPopulationSize(10)
-ga.evolve(freq_stats=10)
+ga.evolve(freq_stats=5)
 print ga.bestIndividual()

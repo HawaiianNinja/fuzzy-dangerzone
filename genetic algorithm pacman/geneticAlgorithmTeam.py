@@ -161,10 +161,10 @@ class ReflexCaptureAgent(CaptureAgent):
         pCapsulesDistances += [self.getMazeDistance(pos, pp)]
     if len(capsulesDistances) > 0:
          score += float(weights['powerPellet'])/(min(capsulesDistances)+0.001)
-    #if len(pCapsulesDistances) > 0:
-    #     score += float(weights['defendPellet'])/(min(pCapsulesDistances)+0.001)
-    #if len(protectedFoodDistances) > 0:
-    #     score += float(weights['ourFood'])/(min(protectedFoodDistances) + 0.001)
+    if len(pCapsulesDistances) > 0:
+         score += float(weights['defendPellet'])/(min(pCapsulesDistances)+0.001)
+    if len(protectedFoodDistances) > 0:
+         score += float(weights['ourFood'])/(min(protectedFoodDistances) + 0.001)
     if len(foodDistances) > 0:
           score += float(weights['enemyFood'])/((min(foodDistances)+0.001))
           #print float(weights['enemyFood'])/((min(foodDistances)+0.001)),"  ", 10*weights['gameScore']*(self.getScore(currentGameState) - startScore)
